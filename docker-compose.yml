@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    image: ubuntuhanlinh
+    container_name: web
+    ports:
+      - "5000:80"
+    volumes:
+      - ./web_data:/var/www/html
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 400M
+    networks:
+      - app_network
+
+  db:
+    image: mysql:latest  # Utilise l'image MySQL officielle
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tp1_db
+      MYSQL_USER: hanlinh
+      MYSQL_PASSWORD: crosemont
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
