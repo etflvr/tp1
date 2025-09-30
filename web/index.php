@@ -2,7 +2,7 @@
 $host = 'mysql-db';
 $db = 'tp1_db';
 $user = 'hanlinh';
-$pass = 'crosemont';
+$pass = 'crosemont123';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
