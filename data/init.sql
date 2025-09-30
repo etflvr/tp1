@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS students;
+CREATE DATABASE IF NOT EXISTS tp1_db;
 USE tp1_db;
 
 CREATE TABLE IF NOT EXISTS students (
@@ -9,3 +9,4 @@ CREATE TABLE IF NOT EXISTS students (
 INSERT INTO students (name) VALUES
     ('hanane alloui'),
     ('linh nguyen');
+

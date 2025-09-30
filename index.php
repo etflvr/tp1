@@ -1,0 +1,33 @@
+
+<?php
+$host = 'mysql-db';
+$db = 'tp1_db';
+$user = 'crosemont';
+$pass = 'crosemont';
+
+// Connexion à MySQL
+$conn = new mysqli($host, $user, $pass, $db);
+
+// Vérifie la connexion
+if ($conn->connect_error) {
+    die("Échec de la connexion : " . $conn->connect_error);
+}
+
+// Requête SQL
+$sql = "SELECT * FROM students";
+$result = $conn->query($sql);
+
+// Affichage
+echo "<h1>Liste des étudiants</h1><ul>";
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<li>" . htmlspecialchars($row['name']) . "</li>";
+    }
+} else {
+    echo "<li>Aucun étudiant trouvé</li>";
+}
+echo "</ul>";
+
+// Ferme la connexion
+$conn->close();
+?>
